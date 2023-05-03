@@ -11,8 +11,7 @@ class RegisterController extends Controller
     public function index()
     {
         return view('register.index', [
-            'title' => 'Sign Up',
-            'active' => 'sign up'
+            'title' => 'Sign Up'
         ]);
     }
 

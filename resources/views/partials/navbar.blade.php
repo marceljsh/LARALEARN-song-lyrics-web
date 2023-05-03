@@ -7,13 +7,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ ($active === "about")? "active" : "" }}" href="/about">About</a>
+                    <a class="nav-link {{ (Request::is("about"))? "active" : "" }}" href="/about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ ($active === "blog")? "active" : "" }}" href="/blog">Blog</a>
+                    <a class="nav-link {{ (Request::is("posts*"))? "active" : "" }}" href="/posts">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ ($active === "categories")? "active" : "" }}" href="/categories">Categories</a>
+                    <a class="nav-link {{ (Request::is("categories"))? "active" : "" }}" href="/categories">Categories</a>
                 </li>
             </ul>
 
@@ -25,24 +25,24 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-sidebar-reverse"></i> Dashboard</a></li>
-                                <li><a class="dropdown-item" href="/blog?author=coleworld"><i class="bi bi-peace"></i> Da Goat 🐐</a></li>
+                                <li><a class="dropdown-item" href="/posts?author=coleworld"><i class="bi bi-peace"></i> Da Goat 🐐</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
                                     <form action="/logout" method="post">
                                         @csrf
-                                        <button type="submit" class="dropdown-item"><i class="bi bi-person-fill-slash"></i> Logout</a></button>
+                                        <button type="submit" class="dropdown-item"><i class="bi bi-person-fill-slash"></i> Sign out</a></button>
                                     </form>
                                 </li>
                             </ul>
                         </li>
                     @else
                         <li class="nav-item">
-                            <a href="/login" class="nav-link nav-link {{ ($active === "sign in")? "active" : "" }}">
+                            <a href="/login" class="nav-link nav-link {{ (Request::is("login"))? "active" : "" }}">
                                 <i class="bi bi-person-circle"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/register" class="nav-link nav-link {{ ($active === "sign up")? "active" : "" }}">
+                            <a href="/register" class="nav-link nav-link {{ (Request::is("register"))? "active" : "" }}">
                                 <i class="bi bi-person-fill-add mx-1"></i>
                             </a>
                         </li>

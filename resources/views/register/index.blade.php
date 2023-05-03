@@ -22,7 +22,7 @@
                     @endif
 
                     <div class="form-floating">
-                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Name" value="{{ old('name') }}" required>
+                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Name" value="{{ old('name') }}" required autofocus>
                         <label for="name">Name</label>
                         @error('name')
                             <div class="invalid-feedback">{{ $message }}</div>
